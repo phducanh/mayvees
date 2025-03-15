@@ -1,12 +1,92 @@
-# React + Vite
+# Life in Weeks Project Documentation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+Life in Weeks is a personal timeline visualization project that displays each week of a person's life as a small box, with meaningful events marked and annotated. The project is built using React and Vite, with a focus on creating an interactive and visually appealing life timeline.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project Structure
 
-## Expanding the ESLint configuration
+### Core Components
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. **Main Application**
+- Entry point: `src/main.jsx`
+- Root component: `App.jsx`
+- Core layout: `BodyContent.jsx`
+
+2. **Data Sources**
+- Event data: `data/eventData.json` - Contains life events organized by decades
+- Description data: `data/description.json` - Contains project description and external links
+- Life in weeks data: `data/life-in-weeks.yml` - YAML format of life events
+
+3. **UI Components**
+- Tooltip component for event details
+- Header component
+- Description component
+- TimeContentContainer for timeline visualization
+
+## Technical Stack
+
+### Core Technologies
+- **Vite**: Build tool for fast development and optimized production builds
+- **React**: Frontend library for UI components
+- **TailwindCSS**: Utility-first CSS framework
+- **Radix UI**: For accessible UI components like tooltips
+
+### Development Tools
+- TypeScript for type safety
+- ESLint for code quality
+- GitHub Actions for CI/CD
+
+## Configuration
+
+### Vite Configuration
+The project uses a custom Vite configuration (`vite.config.js`) with the following key features:
+
+1. **Metadata Plugin**: Automatically injects metadata into the HTML head
+2. **Build Configuration**: Optimizes build output for GitHub Pages deployment
+
+### Metadata Configuration
+The metadata is stored in `src/config/metadata.json` and is used to populate the HTML head with SEO-friendly information.
+
+### GitHub Actions
+The project uses GitHub Actions for CI/CD. The workflow is defined in `.github/workflows/deploy.yml`.
+
+## Deployment
+
+1. **Installation**
+
+```bash
+npm install
+```
+
+2. **Development**
+
+```bash
+npm run dev
+```
+
+3. **Build**
+
+```bash
+npm run build
+```
+
+4. **Deploy**
+
+```bash
+npm run deploy
+```
+
+5. **Deploy to GitHub Pages**
+
+```bash
+npm run deploy
+```
+
+## Contributing
+
+Contributions are welcome! Please create a pull request or open an issue for any improvements or bug fixes.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
