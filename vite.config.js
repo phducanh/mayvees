@@ -5,7 +5,7 @@ import { defineConfig } from "vite"
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/mayvees/',
+  base: '/mayvees',
   plugins: [react(), tailwindcss()],
   build: {
     rollupOptions: {
