@@ -1,0 +1,15 @@
+{
+  "title": "Life in Weeks - Mayvees's Notes",
+  "description": "My life, where each week I've been alive is a little box. When meaningful things happen (for both better and worse) I make a note of it so I can remember how much of life is influenced by these factors.",
+  "baseUrl": "https://phducanh.github.io/mayvees/",
+  "siteName": "Mayvees's Notes",
+  "twitterHandle": "@your_twitter_handle",
+  "images": {
+    "og": "og-def-image.jpg",
+    "ogAlt": "og-alt-image.jpg",
+    "twitter": "twitter-card.jpg",
+    "favicon": "favicon.jpg"
+  },
+  "publishedTime": "2024-12-02T01:12:56+00:00",
+  "modifiedTime": "2024-12-02T01:12:56+00:00"
+} 
