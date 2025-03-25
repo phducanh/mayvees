@@ -4,10 +4,10 @@ import { WeekDiv } from "./WeekDiv";
 export const DecadeDiv = memo(({ title, dateList, index, isLastDecade = false }) => {
     // Move calculations into useMemo to prevent recalculation on every render
     const weeks = useMemo(() => {
-        const startYear = dateList[0]?.date
-            ? new Date(dateList[0].date).getFullYear()
-            : new Date(1998 + index * 10, 6, 31).getFullYear();
-        const startDate = dateList[0]?.date ? new Date(dateList[0].date) : new Date(startYear, 6, 31);
+        const firstEventDate = dateList[0]?.date ? new Date(dateList[0].date) : null;
+        const startYear = firstEventDate && firstEventDate <= new Date(1998 + index * 10, 6, 31) ? firstEventDate.getFullYear() : new Date(1998 + index * 10, 6, 31).getFullYear();
+       
+        const startDate = firstEventDate && firstEventDate <= new Date(1998 + index * 10, 6, 31) ? new Date(dateList[0].date) : new Date(startYear, 6, 31);
         const endDate = new Date(startYear + 10, 6, 31);
 
         const currentYear = new Date().getFullYear();
