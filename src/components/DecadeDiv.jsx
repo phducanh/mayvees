@@ -7,8 +7,9 @@ export const DecadeDiv = memo(({ title, dateList, index, isLastDecade = false })
         const startYear = dateList[0]?.date
             ? new Date(dateList[0].date).getFullYear()
             : new Date(1998 + index * 10, 6, 31).getFullYear();
-        const startDate = new Date(startYear, 6, 31);
+        const startDate = dateList[0]?.date ? new Date(dateList[0].date) : new Date(startYear, 6, 31);
         const endDate = new Date(startYear + 10, 6, 31);
+
         const currentYear = new Date().getFullYear();
         const weeksArray = [];
 
@@ -21,8 +22,11 @@ export const DecadeDiv = memo(({ title, dateList, index, isLastDecade = false })
             // Optimize event finding by using proper date comparison
             const eventForWeek = dateList.find((date) => {
                 const eventDate = new Date(date.date);
+            
+             
                 return eventDate >= weekStart && eventDate <= weekEnd;
             });
+    
 
             const july31 = new Date(d.getFullYear(), 6, 31);
             const isBirthDayWeek = july31 >= d && july31 <= weekEnd;
@@ -79,11 +83,11 @@ export const DecadeDiv = memo(({ title, dateList, index, isLastDecade = false })
             {weeks.map((week) => {
                 switch (week.type) {
                     case "event":
-                        return <WeekDiv key={week.key} date={week.event} />;
+                        return <WeekDiv key={`${week.key}-event`} date={week.event} />;
                     case "birthday":
                         return (
                             <div
-                                key={week.key}
+                                key={`${week.key}-birthday`}
                                 data-date={week.date}
                                 className="border border-gray border-secondary float-left text-truncate"
                                 style={{
